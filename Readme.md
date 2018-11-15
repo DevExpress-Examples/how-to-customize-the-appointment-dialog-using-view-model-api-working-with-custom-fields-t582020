@@ -1,3 +1,14 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/DevExpressMvcApplication1/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/DevExpressMvcApplication1/Controllers/HomeController.vb))
+* [Global.asax](./CS/DevExpressMvcApplication1/Global.asax)
+* [Global.asax.cs](./CS/DevExpressMvcApplication1/Global.asax.cs)
+* [CustomAppointmentEditDialogViewModel.cs](./CS/DevExpressMvcApplication1/Models/CustomAppointmentEditDialogViewModel.cs) (VB: [CustomAppointmentEditDialogViewModel.vb](./VB/DevExpressMvcApplication1/Models/CustomAppointmentEditDialogViewModel.vb))
+* [CustomClasses.cs](./CS/DevExpressMvcApplication1/Models/CustomClasses.cs) (VB: [CustomClasses.vb](./VB/DevExpressMvcApplication1/Models/CustomClasses.vb))
+* [SchedulerDataHelper.cs](./CS/DevExpressMvcApplication1/Models/SchedulerDataHelper.cs) (VB: [SchedulerDataHelper.vb](./VB/DevExpressMvcApplication1/Models/SchedulerDataHelper.vb))
+* [AjaxLogin.js](./CS/DevExpressMvcApplication1/Scripts/AjaxLogin.js)
+<!-- default file list end -->
 # How to customize the Appointment Dialog using View Model API (working with custom fields)
 
 
