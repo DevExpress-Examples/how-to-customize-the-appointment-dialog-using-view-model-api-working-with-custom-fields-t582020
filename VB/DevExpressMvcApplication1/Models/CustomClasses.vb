@@ -3,7 +3,7 @@ Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web
 
-Namespace DevExpressMvcApplication1.Models
+Namespace DevExpressMvcApplication1.Models 
     #Region "#customappointment"
     Public Class CustomAppointment
         Private m_Start As Date
