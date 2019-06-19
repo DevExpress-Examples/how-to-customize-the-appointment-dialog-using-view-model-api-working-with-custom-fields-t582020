@@ -2,6 +2,8 @@
 Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web
+Imports System.Web.Routing
+Imports System.Web.Mvc
 
 Namespace DevExpressMvcApplication1
     ' Note: For instructions on enabling IIS6 or IIS7 classic mode, 

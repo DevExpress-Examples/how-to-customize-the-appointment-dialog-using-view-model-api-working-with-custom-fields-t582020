@@ -3,6 +3,8 @@ Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web
 Imports DevExpressMvcApplication1.Models
+Imports System.Web.Mvc
+Imports DevExpress.Web.Mvc
 
 Namespace DevExpressMvcApplication1.Controllers
     Public Class HomeController

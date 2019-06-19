@@ -4,14 +4,15 @@ Imports System.Linq
 Imports System.Web
 Imports DevExpress.Web.ASPxScheduler.Dialogs
 Imports DevExpress.Web.ASPxScheduler.Internal
+Imports DevExpress.Web
 
 Namespace DevExpressMvcApplication1.Models
     Public Class CustomAppointmentEditDialogViewModel
         Inherits AppointmentEditDialogViewModel
 
-        <DialogFieldViewSettings(Caption := "Company", EditorType := DialogFieldEditorType.ComboBox)> _
+        <DialogFieldViewSettings(Caption:="Company", EditorType:=DialogFieldEditorType.ComboBox)> _
         Public Property AppointmentCompany() As Integer
-        <DialogFieldViewSettings(Caption := "Contact", EditorType := DialogFieldEditorType.ComboBox)> _
+        <DialogFieldViewSettings(Caption:="Contact", EditorType:=DialogFieldEditorType.ComboBox)> _
         Public Property AppointmentContact() As Integer
 
         Public Overrides Sub Load(ByVal appointmentController As AppointmentFormController)
@@ -19,32 +20,33 @@ Namespace DevExpressMvcApplication1.Models
 
             SetEditorTypeFor(Function(m) m.Subject, DialogFieldEditorType.ComboBox)
             SetDataItemsFor(Function(m) m.Subject, Sub(addItemDelegate)
-                addItemDelegate("meeting", "meeting")
-                addItemDelegate("travel", "travel")
-                addItemDelegate("phone call", "phonecall")
-            End Sub)
+                                                       addItemDelegate("meeting", "meeting")
+                                                       addItemDelegate("travel", "travel")
+                                                       addItemDelegate("phone call", "phonecall")
+                                                   End Sub)
 
-            Dim companies As List(Of Company) = Company.GenerateCompanyDataSource()
-            SetDataItemsFor(Function(m As CustomAppointmentEditDialogViewModel) m.AppointmentCompany, Sub(addItemDelegate)
-                For Each comp As Company In companies
-                    addItemDelegate(comp.CompanyName, comp.CompanyID)
-                Next comp
-            End Sub)
 
-            SetDataItemsFor(Function(m As CustomAppointmentEditDialogViewModel) m.AppointmentContact, Sub(addItemDelegate)
-                Dim contacts As List(Of CompanyContact) = CompanyContact.GenerateContactDataSource().Where(Function(c) c.CompanyID = AppointmentCompany).ToList()
-                addItemDelegate("", 0)
-                For Each cont As CompanyContact In contacts
-                    addItemDelegate(cont.ContactName, cont.ContactID)
-                Next cont
-            End Sub)
+            SetDataItemsFor(Function(m) CType(m, CustomAppointmentEditDialogViewModel).AppointmentCompany, Sub(addItemDelegate)
+                                                                                                               Dim companies As List(Of Company) = Company.GenerateCompanyDataSource()
+                                                                                                               For Each comp As Company In companies
+                                                                                                                   addItemDelegate(comp.CompanyName, comp.CompanyID)
+                                                                                                               Next comp
+                                                                                                           End Sub)
 
-            TrackPropertyChangeFor(Function(m As CustomAppointmentEditDialogViewModel) m.AppointmentCompany, Sub()
-                AppointmentContact = 0
-            End Sub)
+            SetDataItemsFor(Function(m) CType(m, CustomAppointmentEditDialogViewModel).AppointmentContact, Sub(addItemDelegate)
+                                                                                                               Dim contacts As List(Of CompanyContact) = CompanyContact.GenerateContactDataSource().Where(Function(c) c.CompanyID = AppointmentCompany).ToList()
+                                                                                                               addItemDelegate("", 0)
+                                                                                                               For Each cont As CompanyContact In contacts
+                                                                                                                   addItemDelegate(cont.ContactName, cont.ContactID)
+                                                                                                               Next cont
+                                                                                                           End Sub)
+
+            TrackPropertyChangeFor(Function(m) CType(m, CustomAppointmentEditDialogViewModel).AppointmentCompany, Sub()
+                                                                                                                      AppointmentContact = 0
+                                                                                                                  End Sub)
 
             TrackPropertyChangeFor(Function(m) m.Subject, Sub()
-            End Sub); ' just to process changing via server to show/hide company/contact
+                                                          End Sub)
         End Sub
 
         Public Overrides Sub SetDialogElementStateConditions()

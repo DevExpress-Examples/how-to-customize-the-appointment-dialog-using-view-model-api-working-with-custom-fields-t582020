@@ -7,6 +7,8 @@ Imports System.Drawing
 Imports System
 Imports System.Web
 Imports DevExpress.Web.ASPxScheduler.Dialogs
+Imports DevExpress.Web.Mvc
+Imports DevExpress.XtraScheduler
 
 Public Class SchedulerDataHelper
     Public Shared Function GetResources() As List(Of CustomResource)
