@@ -23,7 +23,7 @@ namespace DevExpressMvcApplication1.Controllers
         }
 
         public ActionResult EditAppointment() {
-            UpdateAppointment();
+            UpdateAppointment(); 
             return PartialView("SchedulerPartial", SchedulerDataHelper.DataObject);
         }
 
