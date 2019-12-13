@@ -1,10 +1,8 @@
-﻿@{
-    ViewBag.Title = "Some title";
+﻿
+@{
+	ViewBag.Title = "Index";
 }
-
-
-@model DevExpressMvcApplication1.Models.SchedulerDataObject
-@Html.Partial("SchedulerPartial", Model)
-
+<h2>Index</h2>
+@Html.Action("SchedulerPartial")
 
 

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using DevExpress.Web;
+using DevExpress.Web.ASPxScheduler.Dialogs;
+using DevExpress.Web.ASPxScheduler.Internal;
+using DevExpressMvcApplication1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using DevExpress.Web;
-using DevExpress.Web.ASPxScheduler.Dialogs;
-using DevExpress.Web.ASPxScheduler.Internal;
 
-namespace DevExpressMvcApplication1.Models {
+namespace DXWebApplication1.Models {
     public class CustomAppointmentEditDialogViewModel : AppointmentEditDialogViewModel {
 
         [DialogFieldViewSettings(Caption = "Company", EditorType = DialogFieldEditorType.ComboBox)]
@@ -26,7 +27,7 @@ namespace DevExpressMvcApplication1.Models {
 
             List<Company> companies = Company.GenerateCompanyDataSource();
             SetDataItemsFor((CustomAppointmentEditDialogViewModel m) => m.AppointmentCompany, (addItemDelegate) => {
-                foreach(Company comp in companies) {
+                foreach (Company comp in companies) {
                     addItemDelegate(comp.CompanyName, comp.CompanyID);
                 }
             });
@@ -34,7 +35,7 @@ namespace DevExpressMvcApplication1.Models {
             SetDataItemsFor((CustomAppointmentEditDialogViewModel m) => m.AppointmentContact, (addItemDelegate) => {
                 List<CompanyContact> contacts = CompanyContact.GenerateContactDataSource().Where(c => c.CompanyID == AppointmentCompany).ToList();
                 addItemDelegate("", 0);
-                foreach(CompanyContact cont in contacts) {
+                foreach (CompanyContact cont in contacts) {
                     addItemDelegate(cont.ContactName, cont.ContactID);
                 }
             });
@@ -52,8 +53,8 @@ namespace DevExpressMvcApplication1.Models {
             SetItemVisibilityCondition(vm => vm.IsAllDay, false);
             SetItemVisibilityCondition(vm => vm.Reminder, false);
             SetEditorEnabledCondition((CustomAppointmentEditDialogViewModel vm) => vm.AppointmentContact, AppointmentCompany > 0);
-            SetItemVisibilityCondition((CustomAppointmentEditDialogViewModel vm) => vm.AppointmentContact, Subject == "phonecall");
-            SetItemVisibilityCondition((CustomAppointmentEditDialogViewModel vm) => vm.AppointmentCompany, Subject == "phonecall");
+            SetItemVisibilityCondition((CustomAppointmentEditDialogViewModel vm) => vm.AppointmentContact, Subject != "phonecall");
+            SetItemVisibilityCondition((CustomAppointmentEditDialogViewModel vm) => vm.AppointmentCompany, Subject != "phonecall");
         }
     }
 }

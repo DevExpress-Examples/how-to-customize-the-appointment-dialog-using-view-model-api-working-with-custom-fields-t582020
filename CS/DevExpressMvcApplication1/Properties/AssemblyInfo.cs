@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("DevExpressMvcApplication1")]
-[assembly: AssemblyCopyright("Copyright ? 2014")]
+[assembly: AssemblyCopyright("Copyright ? 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1883e27c-e2ce-4dd6-891e-9b3a94899594")]
+[assembly: Guid("391e09ae-de21-4a5e-8d0b-f8639c02a5cf")]
 
 // Version information for an assembly consists of the following four values:
 //

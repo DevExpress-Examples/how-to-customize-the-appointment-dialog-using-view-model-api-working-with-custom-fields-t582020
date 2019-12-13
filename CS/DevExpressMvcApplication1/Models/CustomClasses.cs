@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 
 namespace DevExpressMvcApplication1.Models {
-    #region #customappointment
     public class CustomAppointment {
         private DateTime m_Start;
         private DateTime m_End;
@@ -56,9 +55,6 @@ namespace DevExpressMvcApplication1.Models {
             return apt;
         }
     }
-    #endregion  #customappointment
-
-    #region #customresource
     public class CustomResource {
         private string m_name;
         private int m_res_id;
@@ -78,11 +74,10 @@ namespace DevExpressMvcApplication1.Models {
             cr.Name = caption;
             cr.Color = ResColor;
             return cr;
-        }    
+        }
 
     }
-    #endregion #customresource
-
+    
     public class Company {
         private string m_company_name;
         private int m_company_id;
@@ -95,7 +90,7 @@ namespace DevExpressMvcApplication1.Models {
 
         public static List<Company> GenerateCompanyDataSource() {
             List<Company> returnedResult = new List<Company>();
-            for(int i = 0; i < 10; i++) {
+            for (int i = 0; i < 10; i++) {
                 returnedResult.Add(new Company() { CompanyID = i, CompanyName = "Company " + i.ToString() });
             }
             return returnedResult;
@@ -119,8 +114,8 @@ namespace DevExpressMvcApplication1.Models {
             List<Company> companies = Company.GenerateCompanyDataSource();
 
             int uniqueContactID = 0;
-            for(int i = 0; i < companies.Count; i++) {
-                for(int j = 0; j < 5; j++) {
+            for (int i = 0; i < companies.Count; i++) {
+                for (int j = 0; j < 5; j++) {
                     returnedResult.Add(new CompanyContact() { CompanyID = i, ContactName = "Contact " + j.ToString() + ", Company " + i.ToString(), ContactID = uniqueContactID });
                     uniqueContactID++;
                 }
