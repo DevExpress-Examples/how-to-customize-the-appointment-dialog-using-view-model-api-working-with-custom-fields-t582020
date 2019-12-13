@@ -1,19 +1,37 @@
-﻿Imports System
+﻿Imports Microsoft.VisualBasic
+Imports DevExpress.Web
+Imports DevExpress.Web.ASPxScheduler.Dialogs
+Imports DevExpress.Web.ASPxScheduler.Internal
+Imports DevExpressMvcApplication1.Models
+Imports System
 Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Web
-Imports DevExpress.Web.ASPxScheduler.Dialogs
-Imports DevExpress.Web.ASPxScheduler.Internal
-Imports DevExpress.Web
 
-Namespace DevExpressMvcApplication1.Models
-    Public Class CustomAppointmentEditDialogViewModel
-        Inherits AppointmentEditDialogViewModel
+Namespace DXWebApplication1.Models
+	Public Class CustomAppointmentEditDialogViewModel
+		Inherits AppointmentEditDialogViewModel
 
-        <DialogFieldViewSettings(Caption:="Company", EditorType:=DialogFieldEditorType.ComboBox)> _
+        Private privateAppointmentCompany As Integer
+        <DialogFieldViewSettings(Caption:="Company", EditorType:=DialogFieldEditorType.ComboBox)>
         Public Property AppointmentCompany() As Integer
-        <DialogFieldViewSettings(Caption:="Contact", EditorType:=DialogFieldEditorType.ComboBox)> _
+            Get
+                Return privateAppointmentCompany
+            End Get
+            Set(ByVal value As Integer)
+                privateAppointmentCompany = value
+            End Set
+        End Property
+        Private privateAppointmentContact As Integer
+        <DialogFieldViewSettings(Caption:="Contact", EditorType:=DialogFieldEditorType.ComboBox)>
         Public Property AppointmentContact() As Integer
+            Get
+                Return privateAppointmentContact
+            End Get
+            Set(ByVal value As Integer)
+                privateAppointmentContact = value
+            End Set
+        End Property
 
         Public Overrides Sub Load(ByVal appointmentController As AppointmentFormController)
             MyBase.Load(appointmentController)
@@ -55,8 +73,8 @@ Namespace DevExpressMvcApplication1.Models
             SetItemVisibilityCondition(Function(vm) vm.IsAllDay, False)
             SetItemVisibilityCondition(Function(vm) vm.Reminder, False)
             SetEditorEnabledCondition(Function(vm As CustomAppointmentEditDialogViewModel) vm.AppointmentContact, AppointmentCompany > 0)
-            SetItemVisibilityCondition(Function(vm As CustomAppointmentEditDialogViewModel) vm.AppointmentContact, Subject = "phonecall")
-            SetItemVisibilityCondition(Function(vm As CustomAppointmentEditDialogViewModel) vm.AppointmentCompany, Subject = "phonecall")
+            SetItemVisibilityCondition(Function(vm As CustomAppointmentEditDialogViewModel) vm.AppointmentContact, Subject <> "phonecall")
+            SetItemVisibilityCondition(Function(vm As CustomAppointmentEditDialogViewModel) vm.AppointmentCompany, Subject <> "phonecall")
         End Sub
     End Class
 End Namespace

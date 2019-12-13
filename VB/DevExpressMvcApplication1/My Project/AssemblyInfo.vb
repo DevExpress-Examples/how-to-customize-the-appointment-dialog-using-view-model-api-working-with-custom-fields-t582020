@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+Imports Microsoft.VisualBasic
+Imports System.Reflection
 Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
 
@@ -10,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyConfiguration("")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("DevExpressMvcApplication1")>
-<Assembly: AssemblyCopyright("Copyright ? 2014")>
+<Assembly: AssemblyCopyright("Copyright ? 2018")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: AssemblyCulture("")>
 
@@ -20,7 +21,7 @@ Imports System.Runtime.InteropServices
 <Assembly: ComVisible(False)>
 
 ' The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("1883e27c-e2ce-4dd6-891e-9b3a94899594")>
+<Assembly: Guid("391e09ae-de21-4a5e-8d0b-f8639c02a5cf")>
 
 ' Version information for an assembly consists of the following four values:
 '
